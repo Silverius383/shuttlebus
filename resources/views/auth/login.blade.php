@@ -66,7 +66,7 @@
                             </div>
                             
                         </div>
-                        <div class="col-md-8 offset-md-3">
+                        <div class="col-md-8">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('SignUp Sekarang') }}</a>
                             </div>
                     </form>

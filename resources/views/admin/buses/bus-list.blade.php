@@ -7,16 +7,15 @@
             <div class="col-md-12">
             <span class="pull-center">
             <a href="#" data-toggle="modal" data-target="#addBus" 
-            data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
+            data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
             <i class="glyphicon glyphicon-plus"></i> Tambah Bus Baru</a>
             </span>
             <br>
             <br>
               <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Bus List</h4>
+                <div class="card-header-warning ">
+                  <h4 class="card-title ">Daftar Bus</h4>
                   <h4 class="card-title pull-right">{{ date('d-m-Y', time()) }}</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
