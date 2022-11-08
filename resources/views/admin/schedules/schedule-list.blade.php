@@ -7,16 +7,15 @@
             <div class="col-md-12">
             <span class="pull-center">
             <a href="#" data-toggle="modal" data-target="#addSchedule" 
-            data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
-            <i class="glyphicon glyphicon-plus"></i> Add New Schedule</a>
+            data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
+            <i class="glyphicon glyphicon-plus"></i> Tambah Jadwal Baru</a>
             </span>
             <br>
             <br>
               <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">List Jadwal</h4>
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title ">Daftar Jadwal</h4>
                   <h4 class="card-title pull-right">{{ date('d-m-Y', time()) }}</h4>
-                  <p class="card-category">Search and other methods are to be inserted at this place</p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">

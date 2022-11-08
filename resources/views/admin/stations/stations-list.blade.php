@@ -7,16 +7,15 @@
             <div class="col-md-12">
             <span class="pull-center">
             <a href="#" data-toggle="modal" data-target="#addStation" 
-            data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
-            <i class="glyphicon glyphicon-plus"></i> Add New Station</a>
+            data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
+            <i class="glyphicon glyphicon-plus"></i> Tambah Stasiun Baru</a>
             </span>
             <br>
             <br>
               <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Station List</h4>
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title ">Daftar Stasiun</h4>
                   <h4 class="card-title pull-right">{{ date('d-m-Y', time()) }}</h4>
-                  <p class="card-category"> These are all the stations for the routes.</p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
