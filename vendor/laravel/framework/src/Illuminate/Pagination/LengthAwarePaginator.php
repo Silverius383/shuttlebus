@@ -34,7 +34,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
      * @param  int  $total
      * @param  int  $perPage
      * @param  int|null  $currentPage
-     * @param  array  $options (path, query, fragment, pageName)
+     * @param  array  $options  (path, query, fragment, pageName)
      * @return void
      */
     public function __construct($items, $total, $perPage, $currentPage = null, array $options = [])
@@ -139,7 +139,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
      */
     public function nextPageUrl()
     {
-        if ($this->lastPage() > $this->currentPage()) {
+        if ($this->hasMorePages()) {
             return $this->url($this->currentPage() + 1);
         }
     }

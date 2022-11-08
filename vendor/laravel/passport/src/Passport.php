@@ -409,17 +409,19 @@ class Passport
     }
 
     /**
-     * Set the current client for the application with the given scopes.
+     * Set the current client for the application with the given scopes.
      *
-     * @param  \Laravel\Passport\Client  $client
-     * @param  array  $scopes
-     * @return \Laravel\Passport\Client
+     * @param \Laravel\Passport\Client $client
+     * @param array $scopes
+     * @return \Laravel\Passport\Client
      */
     public static function actingAsClient($client, $scopes = [])
     {
         $token = app(self::tokenModel());
 
-        $token->client = $client;
+        $token->client_id = $client->id;
+        $token->setRelation('client', $client);
+
         $token->scopes = $scopes;
 
         $mock = Mockery::mock(ResourceServer::class);

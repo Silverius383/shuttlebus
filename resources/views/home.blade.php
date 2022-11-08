@@ -11,16 +11,16 @@
                     <form action="{{ url('/home/enquiry')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="source">Source</label>
-                            <input name="source" id="source" type="text" class="form-control" placeholder="Enter Source Address">
+                            <label for="source">Asal</label>
+                            <input name="source" id="source" type="text" class="form-control" placeholder="Masukkan alamat asal">
                         </div>
                         <div class="form-group">
-                            <label for="destination">Destination</label>
-                            <input name="destination" id="destination" type="text" class="form-control" placeholder="Enter destination Address">
+                            <label for="destination">Tujuan</label>
+                            <input name="destination" id="destination" type="text" class="form-control" placeholder="Masukkan alamat tujuan">
                         </div>
                         <div class="form-group">
-                            <label for="travel_date">Travel Date</label>
-                            <input name="travel_date" id="travel_date" type="date" class="form-control" placeholder="Enter Travel Date">
+                            <label for="travel_date">Tanggal Perjalanan</label>
+                            <input name="travel_date" id="travel_date" type="date" class="form-control" placeholder="Masukkan tanggal perjalanan">
                         </div>
                         <input type="submit" class="btn btn-info" value="Save">
 

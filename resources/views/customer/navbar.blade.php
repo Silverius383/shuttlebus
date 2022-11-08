@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-dark sticky-top">
-    <a class="navbar-brand" href="{{url('/home')}}">My Way</a>
+    <a class="navbar-brand" href="{{url('/home')}}">Perjalananku</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"  >
       <span class="navbar-toggler-icon"></span>
     </button>

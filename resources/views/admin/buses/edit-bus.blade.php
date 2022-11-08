@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {{-- <label for="operator_phone">Operator Phone</label> --}}
+                        {{-- <label for="operator_phone">No telp</label> --}}
                         <input value="{{$bus->phone}}" name="phone" id="total_seats" class="form-control" aria-describedby="emailHelp"
                             placeholder="Contact Nuber" type="text">
                     </div>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-6">
-                                <label class="control-label">Image</label>
+                                <label class="control-label">Foto</label>
                                 <input value="{{$bus->bus_image}}" type="file" name="bus_image">
                         </div>
                     </div>

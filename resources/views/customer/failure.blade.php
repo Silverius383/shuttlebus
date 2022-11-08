@@ -7,8 +7,8 @@
     <title>Failed</title>
 </head>
 <body>
-    <h1>Payment Failed!!</h1>
+    <h1>Pembayaran Gagal!</h1>
     <hr>
-    <a href="{{ url('/home') }}">Back To Home Page</a>
+    <a href="{{ url('/home') }}">Kembali ke halaman utama</a>
 </body>
 </html>

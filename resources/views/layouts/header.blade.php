@@ -24,7 +24,7 @@
      <div class="sidebar" data-color="purple" data-background-color="orange" data-image="../assets/img/sidebar-1.jpg">
        <div class="logo">
          <a href="/operator" class="simple-text logo-normal">
-           Online Bus System
+           Pemesanan Shuttle Bus
          </a>
        </div>
       @include('layouts.sidebar')

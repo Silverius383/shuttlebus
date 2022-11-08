@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2020 Justin Hileman
+ * (c) 2012-2022 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,6 +11,7 @@
 
 namespace Psy\Command\ListCommand;
 
+use Psy\Reflection\ReflectionNamespace;
 use Symfony\Component\Console\Input\InputInterface;
 
 /**
@@ -48,16 +49,10 @@ class ConstantEnumerator extends Enumerator
     /**
      * {@inheritdoc}
      */
-    protected function listItems(InputInterface $input, \Reflector $reflector = null, $target = null)
+    protected function listItems(InputInterface $input, \Reflector $reflector = null, $target = null): array
     {
-        // only list constants when no Reflector is present.
-        //
-        // @todo make a NamespaceReflector and pass that in for commands like:
-        //
-        //     ls --constants Foo
-        //
-        // ... for listing constants in the Foo namespace
-        if ($reflector !== null || $target !== null) {
+        // if we have a reflector, ensure that it's a namespace reflector
+        if (($target !== null || $reflector !== null) && !$reflector instanceof ReflectionNamespace) {
             return [];
         }
 
@@ -66,7 +61,7 @@ class ConstantEnumerator extends Enumerator
             return [];
         }
 
-        $user     = $input->getOption('user');
+        $user = $input->getOption('user');
         $internal = $input->getOption('internal');
         $category = $input->getOption('category');
 
@@ -94,12 +89,24 @@ class ConstantEnumerator extends Enumerator
 
         if ($category) {
             $caseCategory = \array_key_exists($category, self::$categoryLabels) ? self::$categoryLabels[$category] : \ucfirst($category);
-            $label = $caseCategory . ' Constants';
+            $label = $caseCategory.' Constants';
             $ret[$label] = $this->getConstants($category);
         }
 
         if (!$user && !$internal && !$category) {
             $ret['Constants'] = $this->getConstants();
+        }
+
+        if ($reflector !== null) {
+            $prefix = \strtolower($reflector->getName()).'\\';
+
+            foreach ($ret as $key => $names) {
+                foreach (\array_keys($names) as $name) {
+                    if (\strpos(\strtolower($name), $prefix) !== 0) {
+                        unset($ret[$key][$name]);
+                    }
+                }
+            }
         }
 
         return \array_map([$this, 'prepareConstants'], \array_filter($ret));
@@ -115,7 +122,7 @@ class ConstantEnumerator extends Enumerator
      *
      * @return array
      */
-    protected function getConstants($category = null)
+    protected function getConstants(string $category = null): array
     {
         if (!$category) {
             return \get_defined_constants();
@@ -126,7 +133,7 @@ class ConstantEnumerator extends Enumerator
         if ($category === 'internal') {
             unset($consts['user']);
 
-            return \call_user_func_array('array_merge', $consts);
+            return \array_merge(...\array_values($consts));
         }
 
         foreach ($consts as $key => $value) {
@@ -145,7 +152,7 @@ class ConstantEnumerator extends Enumerator
      *
      * @return array
      */
-    protected function prepareConstants(array $constants)
+    protected function prepareConstants(array $constants): array
     {
         // My kingdom for a generator.
         $ret = [];

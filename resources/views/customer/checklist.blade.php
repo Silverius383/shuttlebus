@@ -1,20 +1,20 @@
 <div class="card mb-3">
     <img src="https://images3.alphacoders.com/823/thumb-1920-82317.jpg" height="300px" class="card-img-top">
     <div class="card-body">
-      <h2 class="card-title">Your Tickets</h2>
-      <p class="card-text">Here Are All Your Reservations.</p>
+      <h2 class="card-title">Tiket Anda</h2>
+      <p class="card-text">Semua Pesanan Anda.</p>
         
         <table class="table">
             <thead class="thead-light">
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Customer Name</th>
-                <th scope="col">Bus Name</th>
-                <th scope="col">From</th>
-                <th scope="col">To</th>
+                <th scope="col">Nama Customer</th>
+                <th scope="col">Nama Bus</th>
+                <th scope="col">Asal</th>
+                <th scope="col">Tujuan</th>
                 <th scope="col">Seats</th>
-                <th scope="col">Total Cost</th>
-                <th scope="col">Bus Contact</th>
+                <th scope="col">Total Harga</th>
+                <th scope="col">Kontak Bus</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr> 

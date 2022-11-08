@@ -1,20 +1,20 @@
 <div class="card mb-3">
     <img src="https://images3.alphacoders.com/823/thumb-1920-82317.jpg" height="300px" class="card-img-top">
     <div class="card-body">
-      <h2 class="card-title">Bus Schedules</h2>
-      <p class="card-text">Find Your Ride Here.</p>
+      <h2 class="card-title">Jadwal Bus</h2>
+      <p class="card-text">Cek Jadwal anda disini.</p>
         
         <table class="table">
             <thead class="thead-light">
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Bus Name</th>
-                <th scope="col">From</th>
-                <th scope="col">To</th>
-                <th scope="col">Depart Date</th>
-                <th scope="col">Depart Time</th>
-                <th scope="col">Cost Per Seat</th>
-                <th scope="col">Contact Number</th>
+                <th scope="col">Nama Bus</th>
+                <th scope="col">Asal</th>
+                <th scope="col">Tujuan</th>
+                <th scope="col">Tanggal Keberangkatan</th>
+                <th scope="col">Waktu Keberangkatan</th>
+                <th scope="col">Harga per kursi</th>
+                <th scope="col">Contact Person</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr> 
@@ -47,7 +47,7 @@
                 </td>
                 <td>
                     <a href="{{ url('/home/booking/'.$schedule->schedule_id) }}" type="button" class="btn btn-sm btn-primary">
-                        <i class="glyphicon glyphicon-plus"></i>Book
+                        <i class="glyphicon glyphicon-plus"></i>Pesan
                     </a>
                     
                 </td>

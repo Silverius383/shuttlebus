@@ -27,7 +27,7 @@
 
     <style>
     body {
-    background-image: url('https://thumbs.dreamstime.com/b/dark-space-nebula-bright-stars-nebulae-like-cirrus-clouds-tones-slow-dolly-75426993.jpg');
+    background-image: url('https://img.freepik.com/premium-photo/tourist-buses-parking-sunrise-sunset_106035-1198.jpg?w=2000');
     }
     .card-body{
     background-image: url('https://www.aimcobd.com/images/bg1.jpg');

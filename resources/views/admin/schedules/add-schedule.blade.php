@@ -34,7 +34,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <select name="bus_id" id="bus_id" class="form-control">
-                                        <option value="0" selected="true" disabled="true">Select Bus</option>
+                                        <option value="0" selected="true" disabled="true">Pilih Bus</option>
                                         @foreach ($buses as $bus)
                                             <option value="{{$bus->bus_id}}">{{$bus->bus_name}}</option>
                                         @endforeach
@@ -58,14 +58,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="depart_date">Depart Date</label>
+                                    <label for="depart_date">Tanggal berangkat</label>
                                     <input name="depart_date" id="depart_date"  class="form-control" aria-describedby="emailHelp"
                                     placeholder="Enter Depart Date" type="date">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="depart_time">Depart Time</label>
+                                    <label for="depart_time">Waktu berangkat</label>
                                     <input name="depart_time" id="depart_time" rows="2" cols="20" class="form-control" 
                                     placeholder="Enter Depart Time" type="time">
                                 </div>
@@ -74,14 +74,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="return_date">Return Date</label>
+                                    <label for="return_date">Tanggal kembali</label>
                                     <input name="return_date" id="return_date"  class="form-control" aria-describedby="emailHelp"
                                     placeholder="Enter Return Date" type="date">
                                 </div>
                             </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="return_time">Return Time</label>
+                                        <label for="return_time">Waktu Kembali</label>
                                         <input name="return_time" id="return_time" rows="2" cols="20" class="form-control" 
                                         placeholder="Enter Return Time" type="time">
                                     </div>
@@ -107,7 +107,7 @@
                     </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Register Schedule</button>
+          <button type="submit" class="btn btn-primary">Register Jadwal</button>
           </form>
         </div>
       </div>
@@ -116,7 +116,7 @@
   
   @section('scripts')
   <script type="text/javascript">
-    $(#'depart_date').datetimepicker({
+    $('depart_date').datetimepicker({
         format:'YY-MM-DD'
     });
     $('return_date').datetimepicker({

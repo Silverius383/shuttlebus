@@ -4,7 +4,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title" id="exampleModalLongTitle" align="center">
-            <i class="glyphicon glyphicon-log-in">Add New Bus</i></h2>
+            <i class="glyphicon glyphicon-log-in">Tambah Bus Baru</i></h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -41,7 +41,7 @@
                                 <?php  } ?>
                                 <div class="col-md-3">
                                   <input type="checkbox" id="select-all">
-                                  <label for="select-all">Select All</label>
+                                  <label for="select-all">Pilih semua</label>
                                 </div>
                               </div>
                           </div>
@@ -69,7 +69,7 @@
                           </div>
                         </div>
                         <div class="col-md-6">
-                          <label class="control-label">Image</label>
+                          <label class="control-label">Foto</label>
                           <input type="file" name="bus_image">
                         </div>
                       </div>

@@ -15,7 +15,7 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Station List</h4>
-                  <h4 class="card-title pull-right">Today is: {{ date('d-m-Y', time()) }}</h4>
+                  <h4 class="card-title pull-right">{{ date('d-m-Y', time()) }}</h4>
                   <p class="card-category"> These are all the stations for the routes.</p>
                 </div>
                 <div class="card-body">

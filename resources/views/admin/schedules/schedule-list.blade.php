@@ -14,8 +14,8 @@
             <br>
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Schedules List</h4>
-                  <h4 class="card-title pull-right">Today is: {{ date('d-m-Y', time()) }}</h4>
+                  <h4 class="card-title ">List Jadwal</h4>
+                  <h4 class="card-title pull-right">{{ date('d-m-Y', time()) }}</h4>
                   <p class="card-category">Search and other methods are to be inserted at this place</p>
                 </div>
                 <div class="card-body">
@@ -24,16 +24,16 @@
                     <table class="col-md-12">
                       <thead class="text-primary">
                         <th>ID</th>
-                        <th>Bus name</th>
-                        <th>From</th>
-                        <th>To</th>
+                        <th>Nama Bus</th>
+                        <th>Asal</th>
+                        <th>Tujuan</th>
                         <th>Checkpoints</th>
-                        <th>Depart Date</th>
-                        <th>Depart Time</th>
-                        <th>Return Date</th>
-                        {{-- <th>Return Time</th>
-                        <th>Booked Date</th> --}}
-                        {{-- <th>Price Amount</th> --}}
+                        <th>Tanggal Keberangkatan</th>
+                        <th>Waktu Keberangkatan</th>
+                        <th>Tanggal Kembali</th>
+                        {{-- <th>Waktu Kembali</th>
+                        <th>Tanggal Pemesanan</th> --}}
+                        {{-- <th>Total Harga</th> --}}
                         <th>Status</th>
                         <th>Action</th>
                       </thead>

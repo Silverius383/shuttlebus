@@ -8,14 +8,14 @@
             <span class="pull-center">
             <a href="#" data-toggle="modal" data-target="#addBus" 
             data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
-            <i class="glyphicon glyphicon-plus"></i> Add New Bus</a>
+            <i class="glyphicon glyphicon-plus"></i> Tambah Bus Baru</a>
             </span>
             <br>
             <br>
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Bus List</h4>
-                  <h4 class="card-title pull-right">Today is: {{ date('d-m-Y', time()) }}</h4>
+                  <h4 class="card-title pull-right">{{ date('d-m-Y', time()) }}</h4>
                   <p class="card-category"> Here is a subtitle for this table</p>
                 </div>
                 <div class="card-body">

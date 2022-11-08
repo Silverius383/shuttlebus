@@ -39,7 +39,7 @@
                 <div class="form-group">
                         <!-- <label for="exampleInputPassword1">Seat No</label> -->
                         <select name="bus_id" class="form-control">
-                            <option value="">Select Bus</option>
+                            <option value="">Pilih Bus</option>
                             @foreach ($buses as $bus)
                             <option value="{{$bus->bus_id}}">{{$bus->bus_name}}</option>
                             @endforeach
@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="price">Price </label>
+                    <label for="price">Harga </label>
                     <input type="text" name="price" id="price" value="{{ $schedule->price }}">
                 </div>
             </div>
@@ -56,14 +56,14 @@
             <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                    <label for="depart_date">Depart Date</label>
+                    <label for="depart_date">Tanggal Keberangkatan</label>
                     <input name="depart_date" id="depart_date" value="{{ $schedule->depart_date }}" class="form-control" aria-describedby="emailHelp"
                     placeholder="Enter Depart Date" type="date">
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                    <label for="depart_time">Depart Time</label>
+                    <label for="depart_time">Waktu Keberangkatan</label>
                     <input name="depart_time" id="depart_time" value="{{ $schedule->depart_time }}" rows="2" cols="20" class="form-control" 
                     placeholder="Enter Depart Time" type="time">
                 </div>
@@ -72,14 +72,14 @@
             <div class="row">
                 <div class="col-md-6">
                 <div class="form-group">
-                    <label for="return_date">Return Date</label>
+                    <label for="return_date">Tanggal Kembali</label>
                     <input name="return_date" id="return_date" value="{{ $schedule->return_date }}"  class="form-control" aria-describedby="emailHelp"
                     placeholder="Enter Return Date" type="date">
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                    <label for="return_time">Return Time</label>
+                    <label for="return_time">Waktu Kembali</label>
                     <input name="return_time" id="return_time" value="{{ $schedule->return_time }}" rows="2" cols="20" class="form-control" 
                     placeholder="Enter Return Time" type="time">
                 </div>
@@ -104,7 +104,7 @@
           <div class="col-md-3">
           <div class="form-group">
                 <input name="status" value="{{ $schedule->status }}" aria-describedby="emailHelp" type="checkbox">
-                <label>Book</label>
+                <label>Pesan</label>
           </div>
           </div>
 
