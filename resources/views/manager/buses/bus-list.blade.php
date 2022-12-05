@@ -1,15 +1,11 @@
-@extends('layouts.header')
+@extends('layouts.headermg')
 @section('content') 
-@include('admin.message')
+@include('manager.message')
 <div class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
             <span class="pull-center">
-            <a href="#" data-toggle="modal" data-target="#addBus" 
-            data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
-            <i class="glyphicon glyphicon-plus"></i> Tambah Bus Baru</a>
-            </span>
             <br>
             <br>
               <div class="card">
@@ -52,13 +48,7 @@
                         <td>
                           <a href="#" data-toggle="modal" data-target="#busView{{$bus->bus_id}}" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
                           <i class="glyphicon glyphicon-plus"></i>View</a>
-                  @include('admin.buses.bus-view')
-                          <a href="/admin/bus/{{ $bus->bus_id }}/edit" class="btn btn-sm btn-info">Edit</a>
-                          <form action="{{ url('/admin/bus', ['id' => $bus->bus_id]) }}" method="post">
-                            <input class="btn btn-sm btn-danger" type="submit" value="Delete" onclick="return confirm('Anda Yakin ingin menghapus data ini?')"/>
-                            <input type="hidden" name="_method" value="delete" />
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          </form>
+                  @include('manager.buses.bus-view')
                         </td>
                       </tr>
                     @endforeach
@@ -73,5 +63,5 @@
             </div>
             </div>
             </div>
-            @include('admin.buses.add-bus')
+            @include('manager.buses.add-bus')
 @endsection

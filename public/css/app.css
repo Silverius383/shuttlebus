@@ -4498,7 +4498,9 @@ input[type=button].btn-block {
   color: #fff;
   background-color: #3490dc;
 }
-
+.nav-item.active {
+  color: rgb(184, 36, 36);
+}
 .nav-fill .nav-item {
   flex: 1 1 auto;
   text-align: center;

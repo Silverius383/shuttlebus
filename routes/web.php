@@ -65,3 +65,28 @@ Route::prefix('admin')->group(function(){
     Route::get('/password/reset/{{ token }}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
 });
+Route::prefix('manager')->group(function(){
+    Route::get('/login', 'Auth\ManagerLoginController@showLoginForm')->name('manager.login');
+    Route::post('/login', 'Auth\ManagerLoginController@login')->name('manager.login.submit');
+    Route::get('/', 'ManagerController@index')->name('manager.dashboard');
+    Route::get('/logout', 'Auth\ManagerLoginController@logout')->name('manager.logout');
+
+    Route::get('/register', 'Auth\ManagerRegisterController@showRegistrationForm')->name('manager.register');
+    Route::post('/register', 'Auth\ManagerRegisterController@register')->name('manager.register.submit');
+
+    // Station Route
+    Route::Resource('stationmg', 'StationmgController');
+    // Bus Route
+    Route::Resource('busmg', 'BusmgController');
+    // Route BusSchedule
+    Route::Resource('bus-schedulemg', 'BusSchedulemgController');
+    // Route::get('/showRegion', ['as'=>'showRegion', 'uses'=>'BusScheduleController@showRegion']);
+    // Route::get('/showOperator', ['as'=>'showOperator', 'uses'=>'BusScheduleController@showOperator']);
+
+    // Password REset RoutEs  
+    Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset')->name('admin.password.update');
+    Route::get('/password/reset/{{ token }}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+
+});
