@@ -65,7 +65,7 @@ class BusScheduleController extends Controller
                 'return_time'=>'required',
                 'pickup_address'=>'required',
                 'dropoff_address'=>'required',
-                'stations'    =>     'required',
+                // 'stations'    =>     'required',
                 'price'    =>     'required',
                 // 'status'=>'required'
             ]);
@@ -79,7 +79,7 @@ class BusScheduleController extends Controller
             $schedule->return_time = $data['return_time'];
             $schedule->pickup_address = ucfirst($data['pickup_address']);
             $schedule->dropoff_address = ucfirst($data['dropoff_address']);
-            $schedule->stations = $data['stations'];
+            $schedule->stations = $data['pickup_address'];
             $schedule->price = $data['price'];
             $schedule->created_at = date('Y-m-d H:i:s');
             $schedule->updated_at = date('Y-m-d H:i:s');

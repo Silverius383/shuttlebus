@@ -10,7 +10,7 @@
 
     <style>
       body {
-      background-image: url('https://thumbs.dreamstime.com/b/dark-space-nebula-bright-stars-nebulae-like-cirrus-clouds-tones-slow-dolly-75426993.jpg');
+      background-image: url('https://img.freepik.com/premium-photo/tourist-buses-parking-sunrise-sunset_106035-1198.jpg?w=2000');
     }
     .card-body{
       background-image: url('https://www.aimcobd.com/images/bg1.jpg');
@@ -48,7 +48,7 @@
             <div class="row justify-content-center">
                 <section class="col-md-8">
                   <div class="card">
-                    <div class="card-header"><h3>Search Your Ride</h3></div>
+                    <div class="card-header"><h3>Cari Jadwal</h3></div>
                     <div class="card-body">
                         <form action="{{ url('/home/enquiry')}}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -64,7 +64,7 @@
                                 <label for="travel_date">Travel Date</label>
                                 <input name="travel_date" id="travel_date" type="date" class="form-control" placeholder="Enter Travel Date" required>
                             </div>
-                            <input type="submit" class="btn btn-info" value="Search"><strong>&nbsp; Or, &nbsp; </strong><a class="btn btn-primary a-btn-slide-text" href="{{ route('schedules.all') }}">Show All Schedules</a>
+                            <input type="submit" class="btn btn-info" value="Search"><strong>&nbsp; Or &nbsp; </strong><a class="btn btn-primary a-btn-slide-text" href="{{ route('schedules.all') }}">Show All Schedules</a>
                           </form>
                     </div>
                 </div>
@@ -151,13 +151,16 @@
                                       <?php
                                         for ($i=1; $i<=12 ; $i++) { ?>
                                         <div class="col-md-3">
-                                              <input type="checkbox"  name="seats_booked[]" value="{{ $i }}" <?php 
+                                              <input type="checkbox" id="seats" name="seats_booked[]" value="{{ $i }}" <?php 
                                                 if(in_array("$i", (array)$seats)){echo "checked"; ?>
                                                  disabled="true" 
-                                                 <?php }  ?>
-                                                 >{{ $i }}
+                                                 <?php }  ?>>{{ $i }}
                                         </div>
                                       <?php } ?>
+                                      <div class="col-md-3">
+                                  <input type="checkbox" id="select-all">
+                                  <label for="select-all">Pilih semua</label>
+                                </div>  
                                   </div>
                                 </div>
                               </div>
@@ -172,13 +175,13 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="source">From</label>
-                                  <input type="text" name="source" value="{{ $schedule->pickup_address }}" class="form-control" placeholder="Enter Source Address" required>
+                                  <input readonly name="source" value="{{ $schedule->pickup_address }}" class="form-control" placeholder="Enter Source Address" required>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="source">To</label>
-                                  <input type="text" name="destination" value="{{ $schedule->dropoff_address }}"  class="form-control" placeholder="Enter Destination Address" required>
+                                  <input readonly name="destination" value="{{ $schedule->dropoff_address }}"  class="form-control" placeholder="Enter Destination Address" required>
                                 </div>
                               </div>
                             </div>
@@ -223,13 +226,16 @@
                                       <?php
                                         for ($i=1; $i<=12 ; $i++) { ?>
                                         <div class="col-md-3">
-                                              <input type="checkbox"  name="seats_booked[]" value="{{ $i }}" <?php
+                                              <input type="checkbox" id="seats" name="seats_booked[]" value="{{ $i }}" <?php
                                                  if(in_array("$i", (array)$bus->seats)){echo "checked"; ?> 
                                                  disabled="true"
                                                   <?php } if(in_array("$i", (array)$booking->seats_booked)){echo "checked"; } ?>
                                                   >{{ $i }}
                                         </div>
                                       <?php } ?>
+                                      <div class="col-md-3">
+                                      <input type="checkbox" id="select-all">
+                                      <label for="select-all">Pilih semua</label>
                                   </div>
                                 </div>
                               </div>
@@ -330,7 +336,6 @@
       @endif
       
     </div>
-    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -340,7 +345,14 @@
     <script src="{{asset('back-end/assets/js/core/jquery.min.js')}}"></script>
     <script src="{{asset('back-end/assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('back-end/assets/js/core/bootstrap-material-design.min.js')}}"></script>
-     
+    <script>
+    document.getElementById('select-all').onclick = function() {
+    var checkboxes = document.querySelectorAll('input[id="seats"]');
+    for (var checkbox of checkboxes) {
+      checkbox.checked = this.checked;
+    }
+  }
+ </script>
   
   </body>
 </html>
