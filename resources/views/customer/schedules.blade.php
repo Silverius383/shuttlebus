@@ -1,5 +1,5 @@
 <div class="card mb-3">
-    <img src="https://images3.alphacoders.com/823/thumb-1920-82317.jpg" height="300px" class="card-img-top">
+    <img src="https://wallpapercave.com/wp/wp2120738.jpg" height="300px" class="card-img-top">
     <div class="card-body">
       <h2 class="card-title">Jadwal Bus</h2>
       <p class="card-text">Cek Jadwal anda disini.</p>
