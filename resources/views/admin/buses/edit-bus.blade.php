@@ -33,17 +33,20 @@
                     </div>
                 </div>
             </div>
-            <div class="row"> 
+            <!-- <div class="row"> 
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="seats">Seats : </label>
+                        
+
+
                         <?php 
                         for ($i=1; $i<=12 ; $i++) { ?>
                         <input type="checkbox" name="seats[]" value="{{ $i }}" <?php if(in_array("$i", (array)$bus->seats)){echo "checked";}?>>{{ $i }}
                         <?php } ?>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -54,8 +57,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input value="{{$bus->total_seats}}" name="total_seats"  aria-describedby="emailHelp" type="number">
-                        <label>Total Seats</label>
+                    <select name="total_seats" id="total_seats" class="form-control">
+                                        <option value="{{$bus->total_seats}}" selected="true" disabled="true">{{$bus->total_seats}}</option>
+                                        <option value="24">24</option>
+                                        <option value="36">36</option>
+                                        <option value="48">48</option>
+                                    </select>                        <!-- <label>Total Seats</label> -->
                     </div>
                 </div>
                 </div>

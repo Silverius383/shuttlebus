@@ -1,5 +1,5 @@
 <div class="card mb-3">
-    <img src="https://wallpapercave.com/wp/wp2120738.jpg" height="300px" class="card-img-top">
+    <img src="https://pusatsewabus.com/wp-content/uploads/2018/12/bus-super-high-deck.jpg" height="500px" class="card-img-top">
     <div class="card-body">
       <h2 class="card-title">Jadwal Bus</h2>
       <p class="card-text">Cek Jadwal anda disini.</p>

@@ -53,12 +53,12 @@
                         <form action="{{ url('/home/enquiry')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                {{-- <label for="source">Source</label> --}}
-                                <input name="source" id="source" type="text" class="form-control" placeholder="Enter Source Address" required>
+                                 <label for="Asal">Asal Stasiun</label> 
+                                <input name="source" id="source" type="text" class="form-control" placeholder="Masukkan Asal Stasiun" required>
                             </div>
                             <div class="form-group">
-                                {{-- <label for="destination">Destination</label> --}}
-                                <input name="destination" id="destination" type="text" class="form-control" placeholder="Enter destination Address" required>
+                                <label for="Tujuan">Tujuan Stasiun</label> 
+                                <input name="destination" id="destination" type="text" class="form-control" placeholder="Masukkan Tujuan Stasiun" required>
                             </div>
                             <div class="form-group">
                                 <label for="travel_date">Travel Date</label>
