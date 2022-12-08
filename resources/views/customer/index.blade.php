@@ -149,7 +149,7 @@
                                   <label for="customer_id">Seats</label>
                                   <div class="row">
                                       <?php
-                                        for ($i=1; $i<=12 ; $i++) { ?>
+                                        for ($i=1; $i<=$bus->total_seats ; $i++) { ?>
                                         <div class="col-md-3">
                                               <input type="checkbox" id="seats" name="seats_booked[]" value="{{ $i }}" <?php 
                                                 if(in_array("$i", (array)$seats)){echo "checked"; ?>

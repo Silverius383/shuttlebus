@@ -71,7 +71,6 @@ class BusScheduleController extends Controller
             ]);
 
             $schedule = new BusSchedule;
-
             $schedule->bus_id = $data['bus_id'];
             $schedule->depart_date = $data['depart_date'];
             $schedule->return_date = $data['return_date'];
