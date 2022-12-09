@@ -10,6 +10,8 @@ use App\Station;
 use Auth;
 use DB;
 use Session;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class BookingController extends Controller
 {
@@ -22,13 +24,16 @@ class BookingController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // $this->middleware('auth:bus');
+
     }
     
     public function index()
     {
-        $bookings = Booking::all();
+        $user = Auth::user()->id;
+        $order = Booking::where(['customer_id' => $user])->get();
         $buses = Bus::all();
-        return view('customer.index', ['layout' => 'checklist', 'bookings' => $bookings, 'buses' => $buses]);
+        return view('customer.index', ['layout' => 'checklist', 'booking' => $order, 'buses' => $buses]);
     }
 
     /**
@@ -71,7 +76,7 @@ class BookingController extends Controller
 
         //     if(in_array(ucfirst("$request->source"), (array)$schedule->stations)){
         //     // if(count(array_intersect(array(ucfirst($request->source), ucfirst($request->destination)), (array)$schedule->stations)) == 2){
-                $booking->customer_id = Auth::user()->id;
+                $booking->customer_id == Auth::user()->id;
                 $booking->bus_id    =   $schedule->bus_id;
                 $booking->pid   = $pid;
                 $booking->schedule_id    =   $schedule->schedule_id;
@@ -274,4 +279,17 @@ class BookingController extends Controller
 
         return $pid;
     }
+
+    public function viewpdf(int $booking_id){
+        $booking = Booking::find($booking_id);
+        $view = Booking::findOrFail($booking_id);
+
+        return view('customer.invoice', compact('booking'));
+    }
+
+    public function downloadpdf(int $booking_id){
+        $pdf = PDF::loadview('customer.index',['booking_id' => $booking_id]);
+        return $pdf->download('laporan_ticket.pdf');
+    }
+    
 }

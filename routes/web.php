@@ -26,6 +26,8 @@ Route::prefix('home')->group(function(){
     Route::post('/enquiry', 'HomeController@enquiry')->name('enquiry');
     Route::get('/enquiry', 'HomeController@showall')->name('schedules.all');
 
+    Route::get('/booking/{booking_id}/downloadpdf', 'BookingController@downloadpdf');
+    Route::get('/booking/{booking_id}/viewpdf', 'BookingController@viewpdf');
 
     Route::get('/booking', 'BookingController@index')->name('booking.index');
     Route::get('/booking/{schedule_id}', 'BookingController@create')->name('ticket.booking');

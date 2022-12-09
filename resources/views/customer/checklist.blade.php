@@ -20,10 +20,10 @@
             </tr> 
             </thead>
             <tbody>
-            @foreach ($bookings as $key => $booking)
+            @foreach ($booking as $key => $booking)
             <tr>
                 <th scope="row">{{$key+1}}</th>
-                <td>{{ Auth::user()->fname }} {{ Auth::user()->lname }}</td>
+                <td>{{ Auth::user()->fname }} {{Auth::user()->lname}}</td>
                 <td>
                 @foreach ($buses as $bus)
                     @if ($bus->bus_id == $booking->bus_id)
@@ -71,6 +71,8 @@
                         </div>
                         <div class="col-md-2">
                            <a href="/home/booking/{{ $booking->booking_id }}/edit" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+                           <a href="/home/booking/{{ $booking->booking_id }}/downloadpdf" class="btn btn-sm btn-info">download</a>
+                           <a href="/home/booking/{{ $booking->booking_id }}/viewpdf" class="btn btn-sm btn-info">view</a>
                         </div>
                         <div class="col-md-2">
                             <a href="{{ url('/home/booking/'.$booking->booking_id.'/delete') }}" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
