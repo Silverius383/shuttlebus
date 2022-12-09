@@ -29,7 +29,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('customer.index', ['layout' => 'index']);
+        $stations = Station::all();
+        return view('customer.index',compact('stations'), ['layout' => 'index'],['cek' => 'customer']);
     }
 
     public function enquiry(Request $request)
@@ -39,12 +40,13 @@ class HomeController extends Controller
         $date = $request->travel_date;
 
         $buses = Bus::all();
+        $stations = Station::all();
 
         $schedules = DB::table('bus_schedules')
-            ->whereJsonContains('stations', $source)
+            ->where('pickup_address', $source)
             ->Where('depart_date', '=', $date)
             // ->orWhere('source', 'like', '%' . Input::get('source') . '%')
-            ->whereJsonContains('stations', $dest)
+            ->where('dropoff_address', $dest)
             ->paginate(10);
 
         return view('customer.index', ['schedules' => $schedules, 'layout' => 'schedules', 'buses' => $buses, 'source' => $source, 'dest' => $dest, 'date' => $date]);

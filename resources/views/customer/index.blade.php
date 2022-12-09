@@ -52,13 +52,21 @@
                     <div class="card-body">
                         <form action="{{ url('/home/enquiry')}}" method="post" enctype="multipart/form-data">
                             @csrf
+                            {{--<label for= "source"> Asal</label> --}}
+                            <select name="source" id="source" class="form-control" required>
+                                        <option value="" selected="true" disabled="true">Pilih Stasiun Keberangkatan</option>
+                                        @foreach ($stations as $list)
+                                            <option value="{{$list->name}}">{{$list->name}}</option>
+                                        @endforeach
+                                    </select>
                             <div class="form-group">
-                                 <label for="Asal">Asal Stasiun</label> 
-                                <input name="source" id="source" type="text" class="form-control" placeholder="Masukkan Asal Stasiun" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="Tujuan">Tujuan Stasiun</label> 
-                                <input name="destination" id="destination" type="text" class="form-control" placeholder="Masukkan Tujuan Stasiun" required>
+                            {{--<label for= "destination"> Tujuan</label> --}}
+                            <select name="destination" id="destination" class="form-control" required>
+                                        <option value="" selected="true" disabled="true">Pilih Stasiun Akhir</option>
+                                        @foreach ($stations as $list)
+                                            <option value="{{$list->name}}">{{$list->name}}</option>
+                                        @endforeach
+                                    </select>
                             </div>
                             <div class="form-group">
                                 <label for="travel_date">Travel Date</label>
