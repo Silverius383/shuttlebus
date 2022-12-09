@@ -11,7 +11,7 @@
         </div>
         <div class="modal-body">
             <div class="card mb-3">
-                <img style="heigth:40px; width:40px; background-color:powderblue;" 
+                <img style="height:40px; width:40px; background-color:powderblue;" 
                 src="/storage/bus_images/{{$bus->bus_image}}">
                 <div class="card-body">                                             
                 <h5 class="card-title">Name : {{$bus->bus_name}}</h5>

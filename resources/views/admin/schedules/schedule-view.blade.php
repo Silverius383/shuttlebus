@@ -20,13 +20,11 @@
                     <p class="card-text">Return Date : {{$schedule->return_date}}</p>
                     <p class="card-text">Return Time : {{$schedule->return_time}}</p>
                     {{-- {{ $checkpoints = json_decode($schedule->stations) }} --}}
-                    <p class="card-text">Checkpoints : </p>
-                    ($schedule->pickup_address as $key => $checkpoint)
-
+                    <p class="card-text">Checkpoints : {{ $schedule->pickup_address }} -> {{ $schedule->dropoff_address }}</p>
                     <p class="card-text">Status : @if($schedule->status == 1)
-                      Booked
+                      Institusi
                     @else
-                      Pending...
+                      Personal
                     @endif</p>
                     <hr>
                     <p class="card-text"><small class="text-muted">Booked on : {{$schedule->created_at}}</small></p>
