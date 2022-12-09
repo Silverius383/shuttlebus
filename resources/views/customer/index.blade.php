@@ -162,7 +162,7 @@
                                               <input type="checkbox" id="seats" name="seats_booked[]" value="{{ $i }}" <?php 
                                                 if(in_array("$i", (array)$seats)){echo "checked"; ?>
                                                  disabled="true" 
-                                                 <?php }  ?>>{{ $i }}
+                                                 <?php }  ?>> {{ $i }}
                                         </div>
                                       <?php } ?>
                                       <div class="col-md-3">
