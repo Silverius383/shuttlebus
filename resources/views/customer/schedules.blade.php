@@ -43,7 +43,11 @@
                     @endforeach
                 </td>
                 <td>
-                    
+                <p class="card-text">@if($schedule->status == 1)
+                      Institusi
+                    @else
+                      Personal
+                    @endif</p>
                 </td>
                 <td>
                     <a href="{{ url('/home/booking/'.$schedule->schedule_id) }}" type="button" class="btn btn-sm btn-primary">

@@ -59,6 +59,7 @@
                                             <option value="{{$list->name}}">{{$list->name}}</option>
                                         @endforeach
                                     </select>
+    </br>
                             <div class="form-group">
                             {{--<label for= "destination"> Tujuan</label> --}}
                             <select name="destination" id="destination" class="form-control" required>
@@ -160,14 +161,18 @@
                                         for ($i=1; $i<=$bus->total_seats ; $i++) { ?>
                                         <div class="col-md-3">
                                               <input type="checkbox" id="seats" name="seats_booked[]" value="{{ $i }}" <?php 
-                                                if(in_array("$i", (array)$seats)){echo "checked"; ?>
-                                                 disabled="true" 
+                                                if($schedule->status == 1){echo "checked"; ?>
                                                  <?php }  ?>> {{ $i }}
                                         </div>
                                       <?php } ?>
                                       <div class="col-md-3">
-                                  <input type="checkbox" id="select-all">
+                                  <input name = "institusi" type="checkbox" id="select-all" <?php 
+                                                if($schedule->status == 1){echo "checked"; ?>
+                                                 disabled="true" 
+                                                 <?php }  ?>>
                                   <label for="select-all">Pilih semua</label>
+                                 
+                                  
                                 </div>  
                                   </div>
                                 </div>
