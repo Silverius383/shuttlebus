@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Booking;
 use App\Bus;
 use App\BusSchedule;
@@ -59,7 +60,7 @@ class BookingController extends Controller
      */
     public function store(Request $request, $schedule_id)
     {
-        $booking = new Booking;
+        $bookings = new Booking;
 
         $this->validate($request, [
             'seats_booked'  =>  'required',
@@ -76,19 +77,19 @@ class BookingController extends Controller
 
         //     if(in_array(ucfirst("$request->source"), (array)$schedule->stations)){
         //     // if(count(array_intersect(array(ucfirst($request->source), ucfirst($request->destination)), (array)$schedule->stations)) == 2){
-                $booking->customer_id == Auth::user()->id;
-                $booking->bus_id    =   $schedule->bus_id;
-                $booking->pid   = $pid;
-                $booking->schedule_id    =   $schedule->schedule_id;
-                $booking->total_price = (int)$schedule->price * count($request->seats_booked);
-                $booking->seats_booked = $request->seats_booked;
-                $booking->source = ucfirst($request->source);
-                $booking->destination = ucfirst($request->destination);
+                $bookings->customer_id = Auth::user()->id;
+                $bookings->bus_id    =   $schedule->bus_id;
+                $bookings->pid   = $pid;
+                $bookings->schedule_id    =   $schedule->schedule_id;
+                $bookings->total_price = (int)$schedule->price * count($request->seats_booked);
+                $bookings->seats_booked = $request->seats_booked;
+                $bookings->source = ucfirst($request->source);
+                $bookings->destination = ucfirst($request->destination);
         
                 if(isset($request->status)){
-                    $booking->status = 1;
+                    $bookings->status = 1;
                 }else{
-                    $booking->status = 0;
+                    $bookings->status = 0;
                 }
                 
                 $booked = json_decode($bus->seats, true);
@@ -101,15 +102,16 @@ class BookingController extends Controller
                     'seats' => $booked
                     ]);
                     
-                $booking->save();
+                $bookings->save();
                 // dd($bus->seats);
 
-                $bookings = Booking::all();
+                $user = Auth::user()->id;
+                $booking = Booking::where(['customer_id' => $user])->get();
                 $buses = Bus::all();
 
                 Session::flash('success', 'Your Seat Booked Successsfully');
 
-                return view('customer.index', ['layout' => 'checklist', 'buses' => $buses, 'bus'    =>$bus, 'bookings' => $bookings]);
+                return view('customer.index', ['layout' => 'checklist', 'buses' => $buses, 'bus'    =>$bus, 'bookings' => $bookings, 'booking' => $booking]);
         //     }else{
         //         Session::flash('success', 'Please Check Your Source Address');
         //     return redirect()->back();
@@ -213,17 +215,17 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        $booking = Booking::find($id);
+        $bookings = Booking::find($id);
         // $bus = DB::table('buses')->where('bus_id', '=', $booking->bus_id);
         // foreach ($booking->seats_booked as $key => $seat) {
         //     if(in_array($seat, $bus->seats)){
         //         $seats_removed = array_pop($bus->seats);
         //     }
         // }
-        DB::table('buses')->where('bus_id', $booking->bus_id)->update([
+        DB::table('buses')->where('bus_id', $bookings->bus_id)->update([
             'seats' => NULL
             ]);
-        $booking->delete();
+        $bookings->delete();
         Session::flash('success', 'Your Reservation Removed Successfully');
         return redirect(route('booking.index'));
     }
@@ -283,13 +285,19 @@ class BookingController extends Controller
     public function viewpdf(int $booking_id){
         $booking = Booking::find($booking_id);
         $view = Booking::findOrFail($booking_id);
+        $users = DB::table('v_bus')->select('booking_id','bus_id','bus_name','price','bus_num')->get();
 
-        return view('customer.invoice', compact('booking'));
+        return view('customer.invoice', compact('booking', 'users'));
     }
 
     public function downloadpdf(int $booking_id){
-        $pdf = PDF::loadview('customer.index',['booking_id' => $booking_id]);
-        return $pdf->download('laporan_ticket.pdf');
+        $view = Booking::findOrFail($booking_id);
+        $booking = Booking::find($booking_id);
+        $users = DB::table('v_bus')->select('booking_id','bus_id','bus_name','price','bus_num')->get();
+        $data = ['booking' => $booking];
+        $pdf = PDF::loadView('customer.invoice', array('users' => $users,'booking'=>$booking));
+        $todayDate = Carbon::now()->format('d-m-Y');
+        return $pdf->download('invoice'.'-'.$todayDate.'.pdf');
     }
     
 }

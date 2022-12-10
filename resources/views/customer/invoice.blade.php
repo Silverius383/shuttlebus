@@ -87,10 +87,9 @@
                     <h2 class="text-start">Shuttle Bus</h2>
                 </th>
                 <th width="50%" colspan="2" class="text-end company-data">
-                    <span>Invoice Id: #6</span> <br>
-                    <span>Date: 24 / 09 / 2022</span> <br>
-                    <span>Zip code : 560077</span> <br>
-                    <span>Address: #555, Main road, shivaji nagar, Bangalore, India</span> <br>
+                    <span>Invoice Id: {{ $booking->booking_id }}</span> <br>
+                    <span>Date: {{ date('d-m-Y', time()) }}</span> <br>
+                    <span>Address: UKDW</span> <br>
                 </th>
             </tr>
             <tr class="bg-blue">
@@ -104,7 +103,7 @@
                 <td>{{ $booking->booking_id }}</td>
 
                 <td>Full Name:</td>
-                <td>{{ $booking->customer_id = Auth::user()->fname }}</td>
+                <td>{{ $booking->customer_id = Auth::user()->fname }} {{ $booking->customer_id = Auth::user()->lname }}</td>
             </tr>
             <tr>
                 <td>Tracking Id/No.:</td>
@@ -122,7 +121,7 @@
             </tr>
             <tr>
                 <td>Payment Mode:</td>
-                <td>Cash on Delivery</td>
+                <td></td>
 
                 <td>Address:</td>
                 <td>{{ $booking->customer_id = Auth::user()->address }}</td>
@@ -145,41 +144,44 @@
                 </th>
             </tr>
             <tr class="bg-blue">
-                <th>ID</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
+                <th>Nomor Bus</th>
+                <th>Nama Bus</th>
+                <th>Harga</th>
+                <th>Total Tiket</th>
+                <th>Total Harga</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td width="10%">16</td>
+                <td width="10%">@foreach($users as $user)
+            @if($user->booking_id == $booking->booking_id)
+                {{$user->bus_num}}
+            @endif
+@endforeach</td>
                 <td>
+                @foreach($users as $user)
+            @if($user->booking_id == $booking->booking_id)
+                {{$user->bus_name}}
+            @endif
+@endforeach
                 </td>
-                <td width="10%">$14000</td>
-                <td width="10%">1</td>
-                <td width="15%" class="fw-bold">$14000</td>
-            </tr>
-            <tr>
-                <td width="10%">17</td>
-                <td>
-                    Vivo V19
-                </td>
-                <td width="10%">$699</td>
-                <td width="10%">1</td>
-                <td width="15%" class="fw-bold">{{ $booking->customer_id }}</td>
-            </tr>
-            <tr>
-                <td colspan="4" class="total-heading">Total Amount - <small>Inc. all vat/tax</small> :</td>
-                <td colspan="1" class="total-heading">Rp{{ $booking->total_price }}</td>
+                <td width="10%">@foreach($users as $user)
+            @if($user->booking_id == $booking->booking_id)
+                Rp {{$user->price}}
+            @endif
+@endforeach</td>
+                <td width="10%"><?php
+$cars= $booking->seats_booked;
+echo count($cars);
+?></td>
+                <td width="15%" class="total-heading">Rp {{ $booking->total_price }}</td>
             </tr>
         </tbody>
     </table>
 
     <br>
     <p class="text-center">
-        Thank your for shopping with Funda of Web IT
+        Terimakasih
     </p>
 
 </body>
