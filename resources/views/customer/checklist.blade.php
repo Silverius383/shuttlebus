@@ -54,7 +54,7 @@
                     @endif
                 </td>
                 <td> 
-                    <div class="row">
+                    <div class="row " >
                         <div class="col-md-2">
                             <form action="https://uat.esewa.com.np/epay/main" method="POST">
                                 <input value="{{ $booking->total_price }}" name="tAmt" type="hidden">
@@ -68,15 +68,21 @@
                                 <input value="{{ 'http://localhost:8000/home/booking/failed'.'/$booking->booking_id?q=fu' }}" type="hidden" name="fu">
                                 <button type="submit" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-usd"></i></button>
                             </form>
+
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2" >
                            <a href="/home/booking/{{ $booking->booking_id }}/edit" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-edit"></i></a>
-                           <a href="/home/booking/{{ $booking->booking_id }}/downloadpdf" class="btn btn-sm btn-info">download</a>
-                           <a href="/home/booking/{{ $booking->booking_id }}/viewpdf" class="btn btn-sm btn-info">view</a>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 ">
                             <a href="{{ url('/home/booking/'.$booking->booking_id.'/delete') }}" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
                         </div>
+                        <div class="col-md-2 ">
+                        <a href="/home/booking/{{ $booking->booking_id }}/downloadpdf" class="btn btn-sm btn-warning">download</a>
+                        <a href="/home/booking/{{ $booking->booking_id }}/viewpdf" class="btn btn-sm btn-warning">view</a>
+
+                        </div>
+                      
+                        
                     </div>
                   </td>
             </tr>

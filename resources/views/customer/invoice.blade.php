@@ -176,13 +176,18 @@ echo count($cars);
 ?></td>
                 <td width="15%" class="total-heading">Rp {{ $booking->total_price }}</td>
             </tr>
+            
         </tbody>
+        
     </table>
-
+     
     <br>
     <p class="text-center">
         Terimakasih
     </p>
+    <a href="{{ url('/home/enquiry')}}" class="btn btn-secondary">
+        </a>
+    
 
 </body>
 </html>
