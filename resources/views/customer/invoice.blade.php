@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Invoice #{{ $booking->booking_id }}</title>
+    
 
     <style>
         html,
@@ -76,6 +77,18 @@
             background-color: #414ab1;
             color: #fff;
         }
+        .button {
+        background-color: #1c87c9;
+        border-radius: 25px;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
     </style>
 </head>
 <body>
@@ -180,8 +193,8 @@ echo count($cars);
         </tbody>
         
     </table>
-     
-    <br>
+    <a href="{{ url('/home/booking')}}" class="button"> Back </a> 
+        <br>
     <p class="text-center">
         Terimakasih
     </p>
