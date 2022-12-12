@@ -44,12 +44,13 @@ class BookingController extends Controller
      */
     public function create($schedule_id)
     {
+        $booking = DB::table('bookings')->where('schedule_id', '=', $schedule_id)->first();
         $schedule = DB::table('bus_schedules')->where('schedule_id', '=', $schedule_id)->first();
         $bus = DB::table('buses')->where('bus_id', '=', $schedule->bus_id)->first();
 
-        $seats = json_decode($bus->seats);
+        $seats = json_decode($booking->seats_booked);
         
-        return view('customer.index', ['schedule' => $schedule, 'layout' => 'addBooking', 'seats' => $seats, 'bus' => $bus]);
+        return view('customer.index', ['schedule' => $schedule, 'layout' => 'addBooking', 'seats' => $seats, 'bus' => $bus, 'booking' => $booking]);
     }
 
     /**

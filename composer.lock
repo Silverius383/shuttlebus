@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fa52686f39b2115a77958e0098f8f22",
+    "content-hash": "068b494310f39ed2e5911d5420634db5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -679,6 +679,50 @@
                 "source": "https://github.com/fideloper/TrustedProxy/tree/4.4.2"
             },
             "time": "2022-02-09T13:33:34+00:00"
+        },
+        {
+            "name": "filestack/filestack-php",
+            "version": "1.1.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filestack/filestack-php.git",
+                "reference": "5396650b246969fec929fdd2c6ab908adb5b28e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filestack/filestack-php/zipball/5396650b246969fec929fdd2c6ab908adb5b28e2",
+                "reference": "5396650b246969fec929fdd2c6ab908adb5b28e2",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phploc/phploc": "^4.0",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "^5.7",
+                "satooshi/php-coveralls": "^1.0",
+                "theseer/phpdox": "^0.10.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Filestack\\": "filestack",
+                    "Filestack\\Mixins\\": "filestack/mixins"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "A Filestack library for PHP",
+            "support": {
+                "issues": "https://github.com/filestack/filestack-php/issues",
+                "source": "https://github.com/filestack/filestack-php/tree/develop"
+            },
+            "time": "2018-02-08T22:52:39+00:00"
         },
         {
             "name": "firebase/php-jwt",

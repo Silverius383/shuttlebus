@@ -155,7 +155,7 @@
                             </div>
                             <div class="card-body">
                                 <form action="{{ url('/home/booking/'.$schedule->schedule_id) }}" method="post"
-                                    enctype="multipart/form-data">
+                                    enctype="multipart/form-data" name="formpesan">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-6">
@@ -179,15 +179,21 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="customer_id">Seats</label>
-                                                <div class="row">
+                                                <div class="row seat">
                                                     <?php
                                         for ($i=1; $i<=$bus->total_seats ; $i++) { ?>
                                                     <div class="col-md-3">
                                                         <input type="checkbox" id="seats" name="seats_booked[]"
-                                                            value="{{ $i }}" <?php 
-                                                if($schedule->status == 1){echo "checked"; ?> <?php }  ?>> {{ $i }}
+                                                            value="{{ $i }}" <?php  
+                                                                $aaa = $booking->seats_booked;
+                                                                $aaa->count();
+                                                                for ($i=1; $i<=$aaa ; $i++) {
+                                                                if(in_array("$i", (array)$seats)){echo "checked";?> disabled="true"  
+                                                                    <?php }  ?>> {{ $i }}
+                                                                
+                                                 
                                                     </div>
-                                                    <?php } ?>
+                                                    <?php }} ?>
                                                     <div class="col-md-3">
                                                         <input name="institusi" type="checkbox" id="select-all" <?php 
                                                 if($schedule->status == 1){echo "checked"; ?> disabled="true"
@@ -406,12 +412,17 @@
     <script src="{{asset('back-end/assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('back-end/assets/js/core/bootstrap-material-design.min.js')}}"></script>
     <script>
-    document.getElementById('select-all').onclick = function() {
-        var checkboxes = document.querySelectorAll('input[id="seats"]');
+    document.getElementById('select-all').onclick = function(e) {
+        var checkboxes = document.querySelectorAll('input[id="seats"][type="checkbox"][readonly="readonly"]');
+        e.preventDefault();
         for (var checkbox of checkboxes) {
             checkbox.checked = this.checked;
         }
     }
+    $('input[type="checkbox"][readonly="readonly"]').click(function(e){
+    e.preventDefault();
+});
+
     </script>
 
 </body>
