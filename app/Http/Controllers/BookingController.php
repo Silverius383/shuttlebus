@@ -47,8 +47,9 @@ class BookingController extends Controller
         $booking = DB::table('bookings')->where('schedule_id', '=', $schedule_id)->first();
         $schedule = DB::table('bus_schedules')->where('schedule_id', '=', $schedule_id)->first();
         $bus = DB::table('buses')->where('bus_id', '=', $schedule->bus_id)->first();
+            $seats = json_decode($booking->seats_booked);
+        // $seats = json_encode(count((array)$booking));
 
-        $seats = json_decode($booking->seats_booked);
         
         return view('customer.index', ['schedule' => $schedule, 'layout' => 'addBooking', 'seats' => $seats, 'bus' => $bus, 'booking' => $booking]);
     }

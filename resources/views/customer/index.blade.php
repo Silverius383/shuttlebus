@@ -185,18 +185,14 @@
                                                     <div class="col-md-3">
                                                         <input type="checkbox" id="seats" name="seats_booked[]"
                                                             value="{{ $i }}" <?php  
-                                                                $aaa = $booking->seats_booked;
-                                                                $aaa->count();
-                                                                for ($i=1; $i<=$aaa ; $i++) {
-                                                                if(in_array("$i", (array)$seats)){echo "checked";?> disabled="true"  
+                                                                if(in_array("$i", (array)$seats)){echo "checked";?> disabled="true"
                                                                     <?php }  ?>> {{ $i }}
-                                                                
-                                                 
+                                                                    
                                                     </div>
-                                                    <?php }} ?>
+                                                    <?php } ?>
                                                     <div class="col-md-3">
                                                         <input name="institusi" type="checkbox" id="select-all" <?php 
-                                                if($schedule->status == 1){echo "checked"; ?> disabled="true"
+                                                if($schedule->status == 1){echo "checked"; ?> readonly="readonly"
                                                             <?php }  ?>>
                                                         <label for="select-all">Pilih semua</label>
 
