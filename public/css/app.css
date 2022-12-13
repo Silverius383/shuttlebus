@@ -320,6 +320,10 @@ fieldset {
   border: 0;
 }
 
+peding {
+  padding-left: 4px;
+}
+
 legend {
   display: block;
   width: 100%;

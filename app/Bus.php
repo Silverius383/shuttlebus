@@ -3,10 +3,12 @@
 namespace App;
 use App\BusSchedule;
 use App\Booking;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bus extends Model
+class Bus extends Authenticatable
 {
     protected $table = 'buses';
     protected $fillable = ['bus_name', 'bus_num', 'phone', 'seats', 'bus_image', 'total_seats', 'status'];

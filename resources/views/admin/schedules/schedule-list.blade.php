@@ -48,9 +48,7 @@
                         @endforeach</td>
                         <td>{{ $schedule->pickup_address }}</td>
                         <td>{{ $schedule->dropoff_address }}</td>
-                        <td>[@foreach ($schedule->stations as $checkpoint)
-                              {{ $checkpoint }} |
-                          @endforeach]
+                        <td>{{ $schedule->pickup_address }} {{ $schedule->dropoff_address }}
                         </td>
                         <td>{{ $schedule->depart_date }}</td>
                         <td>{{ $schedule->depart_time }}</td>
@@ -59,9 +57,9 @@
                         <td>{{ $schedule->created_at }}</td> --}}
                         {{-- <td>{{ $schedule->price }}</td> --}}
                         <td>@if($schedule->status == 1)
-                          Booked
+                          Institusi
                         @else
-                          Pending...
+                          Personal
                         @endif
                         </td>
                         <td>

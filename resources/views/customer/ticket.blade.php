@@ -56,6 +56,7 @@
       <a href="{{ url('/home/booking/'.$booking->booking_id) }}" type="button" class="btn btn-sm btn-primary">
         <i class="glyphicon glyphicon-plus"></i>View</a>
         <a href="/home/booking/{{ $booking->booking_id }}/edit" class="btn btn-sm btn-info">Edit</a>
+
         <form action="{{ url('/home/booking/', $booking->booking_id) }}" method="post">
           <input class="btn btn-sm btn-danger" type="submit" value="Delete" />
           <input type="hidden" name="_method" value="delete" />

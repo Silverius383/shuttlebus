@@ -66,6 +66,16 @@ return [
             'provider' => 'managers',
             'hash' => false,
         ],
+
+        'bus' => [
+            'driver' => 'session',
+            'provider' => 'buses',
+        ],
+        'bus-api' => [
+            'driver' => 'token',
+            'provider' => 'buses',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -97,6 +107,10 @@ return [
         'managers' => [
             'driver' => 'eloquent',
             'model' => App\Manager::class,
+        ],
+        'buses' => [
+            'driver' => 'eloquent',
+            'model' => App\Bus::class,
         ],
 
         // 'users' => [
@@ -135,6 +149,12 @@ return [
         ],
         'managers' => [
             'provider' => 'managers',
+            'table' => 'password_resets',
+            'expire' => 15,
+            'throttle' => 60,
+        ],
+        'buses' => [
+            'provider' => 'buses',
             'table' => 'password_resets',
             'expire' => 15,
             'throttle' => 60,
