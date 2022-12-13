@@ -59,7 +59,7 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql')&& env('APP_ENV') !== 'testing' && env('APP_ENV') !== 'local' ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => resource_path('/home/site/wwwroot/ssl/BaltimoreCyberTrustRoot.crt.pem'),
+                PDO::MYSQL_ATTR_SSL_CA => resource_path('"C:\Users\LENOVO\Downloads\BaltimoreCyberTrustRoot.crt.pem"'),
                 PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
          ]) : [],
         ],
