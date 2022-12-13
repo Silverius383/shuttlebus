@@ -180,22 +180,18 @@
                                             <div class="form-group">
                                                 <label for="customer_id">Seats</label>
                                                 <div class="row seat">
-                                                    <?php
-                                        for ($i=1; $i<=$bus->total_seats ; $i++) { ?>
+                                                    <?php for ($i=1; $i<=$bus->total_seats ; $i++) { ?>
                                                     <div class="col-md-3">
-                                                        <input type="checkbox" id="seats" name="seats_booked[]"
-                                                            value="{{ $i }}" <?php  
-                                                                if(in_array("$i", (array)$seats)){echo "checked";?> disabled="true"
-                                                                    <?php }  ?>> {{ $i }}
-                                                                    
+                                                        @if ($schedule->status == 0)
+                                                        <input type="checkbox" id="seats" name="seats_booked[]" value="{{ $i }}" <?php if(in_array("$i", (array)$seats)){ ?> checked disabled="true" <?php } ?>> {{ $i }}
+                                                        @elseif ($schedule->status == 1)
+                                                        <input type="checkbox" id="seats" name="seats_booked[]" value="{{ $i }}" checked readonly="readonly"> {{ $i }}
+                                                        @endif
                                                     </div>
                                                     <?php } ?>
                                                     <div class="col-md-3">
-                                                        <input name="institusi" type="checkbox" id="select-all" <?php 
-                                                if($schedule->status == 1){echo "checked"; ?> readonly="readonly"
-                                                            <?php }  ?>>
+                                                        <input name="institusi" type="checkbox" id="select-all" <?php if($schedule->status == 1){ ?> checked readonly="readonly" <?php } ?>>
                                                         <label for="select-all">Pilih semua</label>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -271,7 +267,7 @@
                                                 <label for="customer_id">Seats</label>
                                                 <div class="row">
                                                     <?php
-                                        for ($i=1; $i<=12 ; $i++) { ?>
+                                        for ($i=1; $i<=$bus->total_seats ; $i++) { ?>
                                                     <div class="col-md-3">
                                                         <input type="checkbox" id="seats" name="seats_booked[]"
                                                             value="{{ $i }}" <?php
