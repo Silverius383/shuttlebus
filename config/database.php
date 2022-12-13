@@ -59,7 +59,7 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') && env('APP_ENV') !== 'testing'? array_filter([
-                PDO::MYSQL_ATTR_SSL_KEY => resource_path('certificates/DigiCertGlobalRootCA.crt.pem'),
+                PDO::MYSQL_ATTR_SSL_CA => resource_path('certificates/DigiCertGlobalRootCA.crt.pem'),
                 PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
          ]) : [],
         ],
