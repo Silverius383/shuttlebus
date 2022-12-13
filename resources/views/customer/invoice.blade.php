@@ -141,7 +141,7 @@
             </tr>
             <tr>
                 <td>Order Status:</td>
-                <td>completed</td>
+                <td>Unpaid</td>
 
                 <td>Customer ID:</td>
                 <td>{{ $booking->customer_id = Auth::user()->id}}</td>
