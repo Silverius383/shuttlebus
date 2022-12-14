@@ -59,7 +59,7 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => resources('/home/site/wwwroot/ssl/DigiCertGlobalRootCA.crt.pem'),
+                PDO::MYSQL_ATTR_SSL_CA => ('/home/site/wwwroot/resources/certificates/DigiCertGlobalRootCA.crt.pem'),
                 PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
          ]) : [],
         ],
