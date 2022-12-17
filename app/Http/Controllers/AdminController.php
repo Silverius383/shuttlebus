@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
+use App\Bus;
+use App\BusSchedule;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -24,6 +27,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admin-dashboard');
+        $buses = Bus::all();
+        $book = Booking::all();
+        $jadwal = BusSchedule::all();
+
+        return view('admin.admin-dashboard', compact('buses','book', 'jadwal'));
     }
 }

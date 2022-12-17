@@ -102,13 +102,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <div class="form-group">
                         <input name="status" value="{{ $schedule->status }}" aria-describedby="emailHelp"
                             type="checkbox">
                         <label>Pesan</label>
                     </div>
-                </div>
+                </div> -->
 
             </fieldset>
         </div>

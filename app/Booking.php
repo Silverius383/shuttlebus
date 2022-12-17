@@ -28,14 +28,14 @@ class Booking extends Model
 
     public function saveSeats()
     {
-        $buses = Bus::all();
-        foreach ($buses as $bus) {
-            $bus->seats = array();
-            if($bus->bus_id == $this->bus_id){
+        $booking = Booking::all();
+        foreach ($booking as $book) {
+            $book->seats = array();
+            if($book->schedule_id == $this->schedule_id){
                 foreach ($this->seats_booked as $seat) {
-                    array_push($bus->seats, $seat);
+                    array_push($book->seats, $seat);
                 }   
-                $bus->seats = array_unique($bus->seats);
+                $book->seats = array_unique($book->seats);
             }
         }
         
