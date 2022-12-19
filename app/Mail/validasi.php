@@ -6,9 +6,12 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Booking;
+
 
 class validasi extends Mailable
 {
+    
     use Queueable, SerializesModels;
 
     /**
@@ -16,9 +19,16 @@ class validasi extends Mailable
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
+    public $booking;
+    public $pdfHtml;
+    public $users;
+    public $user;
+
+    public function __construct(Booking $booking, $users, $user, $pdfHtml) {
+        $this->booking = $booking;
+        $this->pdfHtml = $pdfHtml;
+        $this->users = $users;
+        $this->user = $user;
     }
 
     /**
@@ -28,6 +38,10 @@ class validasi extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('customer.invoicebuatan')
+                    // attach the pdf to email
+                    ->attachData($this->pdfHtml, 'name.pdf', [
+                        'mime' => 'application/pdf',
+                    ]);;
     }
 }

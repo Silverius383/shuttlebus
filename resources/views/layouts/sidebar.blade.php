@@ -37,8 +37,8 @@
           <p>Stasiun</p>
         </a>
       </li>
-      <li class="nav-item {{  request()->routeIs('manager.register') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('manager.register') }}">
+      <li class="nav-item {{  request()->routeIs('admin.indexbus') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.indexbus') }}">
           {{-- <i class="material-icons">person</i> --}}
           <p>Validasi</p>
         </a>

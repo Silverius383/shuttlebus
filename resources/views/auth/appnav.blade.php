@@ -13,6 +13,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login Admin') }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('manager.login') }}">{{ __('Login Manager') }}</a>
+                    </li>
                     
                 @else
                     <li class="nav-item dropdown">

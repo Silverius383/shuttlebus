@@ -58,9 +58,9 @@
                 </td>
                 <td> 
                     <div class="row " >
-                        <div  >
+                        <div>
                         <a href="/home/booking/{{ $booking->booking_id }}/downloadpdf" class="btn btn-sm btn-warning">download</a>
-                        <a href="/home/booking/{{ $booking->booking_id }}/sendmail" class="btn btn-sm btn-warning">mail</a>
+                        <a href="/admin/booking/{{ $booking->booking_id }}/sendmail" class="btn btn-sm btn-warning">mail</a>
                         <a href="/home/booking/{{ $booking->booking_id }}/viewpdf" class="btn btn-sm btn-warning">view</a>
                         </div>                      
                     </div>
